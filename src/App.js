@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import RatingSystem from './Rating';
 import Footer from './Footer';
+import Nav from './Nav';
 
 function App() {
   const [status, setStatus] = useState('Not Learning 🚨');
@@ -10,6 +11,8 @@ function App() {
 
   return (
     <div className="App">
+      <Nav />
+
       <header className="App-header">
         <img
           src={logo}
@@ -21,22 +24,16 @@ function App() {
 
         <div>
           <h2>The Student is: {status}</h2> {}
-          <button onClick={() => setStatus('Learning 🏆')}>
+          <button
+            className="App-button"
+            onClick={() => setStatus('Learning 🏆')}
+          >
             Start Learning
           </button>
         </div>
       </header>
 
-      <main>
-        <div>
-          <input
-            type="checkbox"
-            value={checked}
-            onChange={() => setChecked((checked) => !checked)}
-          ></input>
-          <p>{checked ? 'Learning' : 'Not Learning'}</p>
-        </div>
-
+      <main className="App-main">
         <div>
           <a
             className="App-link"

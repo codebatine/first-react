@@ -1,7 +1,7 @@
 import React from 'react';
-import youtubeIcon from './img/youtube.png';
-import linkedinIcon from './img/linkedin.png';
-import githubIcon from './img/github.png';
+import youtubeIcon from '../img/youtube.png';
+import linkedinIcon from '../img/linkedin.png';
+import githubIcon from '../img/github.png';
 
 function Footer() {
   return (

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RatingSystem from './Rating';
-import Footer from './Footer';
-import Nav from './Nav';
+import RatingSystem from './components/Rating';
+import Footer from './components/Footer';
+import Nav from './components/Nav';
+import AddStudent from './components/AddStudent';
 
 function App() {
   const [status, setStatus] = useState('Not Learning 🚨');
@@ -46,6 +47,8 @@ function App() {
         </div>
 
         <RatingSystem />
+
+        <AddStudent />
       </main>
 
       <Footer />

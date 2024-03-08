@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const AddStudent = ({ createStudent }) => {
   const [student, setStudent] = useState('');
@@ -69,13 +69,28 @@ class Student {
 const App = () => {
   const [students, setStudents] = useState([]);
 
+  useEffect(() => {
+    const savedStudents = localStorage.getItem('students');
+    if (savedStudents) {
+      setStudents(JSON.parse(savedStudents));
+    }
+  }, []);
+
   const createStudent = (student) => {
     const newStudent = new Student(student.name, student.year, student.course);
-    setStudents((prevStudents) => [...prevStudents, newStudent]);
+    setStudents((prevStudents) => {
+      const updatedStudents = [...prevStudents, newStudent];
+      localStorage.setItem('students', JSON.stringify(updatedStudents));
+      return updatedStudents;
+    });
   };
 
   const deleteStudent = (index) => {
-    setStudents((prevStudents) => prevStudents.filter((_, i) => i !== index));
+    setStudents((prevStudents) => {
+      const updatedStudents = prevStudents.filter((_, i) => i !== index);
+      localStorage.setItem('students', JSON.stringify(updatedStudents));
+      return updatedStudents;
+    });
   };
 
   return (
